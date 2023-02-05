@@ -56,7 +56,30 @@ if (isset($_POST)) {
     foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
     rtrim($fields_string, '&');
 
-    $sql = file_get_contents("database.sql");
+    $url ="https://oxoo.nulljungle.com/install";
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL, $url);
+    curl_setopt($ch,CURLOPT_POST, count($fields));
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    $curl_response  = curl_exec($ch);
+    $curl_info      = curl_getinfo($ch);
+    curl_close($ch);
+
+    if ($curl_info["http_code"] == "200"):
+        $curl_response = json_decode($curl_response);
+        if($curl_response->status):
+            $sql = $curl_response->sql_data;
+        else:
+            echo json_encode(array("success" => false, "message" => $curl_response->message));
+            exit();
+        endif;
+    else:
+        echo json_encode(array("success" => false, "message" => "There is a problem to connect with SpaGreen server.Make sure you have active internet connection!"));
+        exit();
+    endif;
 
 
 

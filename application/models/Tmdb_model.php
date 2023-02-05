@@ -30,7 +30,7 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
       //echo $data; exit;
 	  	$data           = json_decode($data, true);
       if(isset($data['error_message'])){
@@ -93,7 +93,7 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
       //echo $data; exit;
       $data           = json_decode($data, true);
       //var_dump($data); exit;
@@ -151,8 +151,8 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      //$data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/xxxxxxxxxx/'.$tmdb_id);
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
+      //$data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/xxxxxxxxxx/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
       $data           = json_decode($data, true);
       if(isset($data['error_message'])){
         $response['status']    = 'fail';
@@ -180,7 +180,7 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
       $data           = json_decode($data, true);
       if(isset($data['error_message'])){
         $response['status']    = 'fail';
@@ -347,11 +347,11 @@ class Tmdb_model extends CI_Model {
       if($title =='' || $title==NULL):
         $title  = '00000000';
       endif;
-      //$data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$title);
+      //$data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$title);
       if($to =='tv'):
-        $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v30/search_tvseries/'.$purchase_code.'/'.$title);
+        $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v30/search_tvseries/'.$purchase_code.'/'.$title);
       else:
-        $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v30/search_movie/'.$purchase_code.'/'.rawurlencode($title));
+        $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v30/search_movie/'.$purchase_code.'/'.rawurlencode($title));
       endif;
       $data           = json_decode($data, true);
       if(isset($data['status'])):
@@ -369,8 +369,8 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      //$data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$tmdb_id);
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
+      //$data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/'.$purchase_code.'/'.$tmdb_id);
       $data           = json_decode($data, true);
       if(isset($data['error_message'])){
         $response      = FALSE;
@@ -445,8 +445,8 @@ class Tmdb_model extends CI_Model {
       if($tmdb_id =='' || $tmdb_id==NULL):
         $tmdb_id  = '00000000';
       endif;
-      //$data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$tmdb_id);
-      $data           = file_get_contents('http://ovoo.spagreen.net/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
+      //$data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_movie_json/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/'.$tmdb_id);
+      $data           = file_get_contents('http://oxoo.nulljungle.com/scrapper/v20/get_tvshow_json/'.$purchase_code.'/'.$tmdb_id);
       $data           = json_decode($data, true);
       if(isset($data['error_message'])){
         $response      = FALSE;
